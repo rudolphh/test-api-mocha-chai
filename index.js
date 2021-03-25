@@ -32,7 +32,7 @@ app.route('/product/:id')
     })
     .put((req, res) => {
 
-        Products.updateOne({ _id: req.params.id }, req.body, (err, success) => {
+        Products.findByIdAndUpdate( req.params.id, req.body, (err, success) => {
             if(err) res.status(500).send(err);
             res.status(200).send(success);
         });
